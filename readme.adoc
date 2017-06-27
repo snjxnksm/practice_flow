@@ -1,0 +1,93 @@
+= Gitワークフローについて
+:toc: left
+:toc-title: 目次
+:source-highlighter: coderay
+
+Git を使ったワークフローの考え方は何種類かある模様。
+名称が似通っているが、それぞれ基本となる考え方が違う。
+
+|===========
+| 名前 | 特徴
+| Git Flow | 一番メジャー。 +
+              Gitコマンドのプラグインとして作られていて、専用のサブコマンドが用意されている +
+              sourcetree でGUI操作が可能。 +
+              運用するブランチが少し多い +
+| GitHub Flow |　手動で実施する。 +
+                 運用するブランチは少ない。 +
+                 フォーク：プルリク方式。
+| Gitlab Flow |  手動で実施する。 +
+                 運用するブランチは少しい多い。 +
+                 (リリース対象のブランチを用意する) +
+                 ブランチ：マージ方式。
+|===========
+
+== Git Flow
+
+おそらくGitを使ったワークフローを探すと一番最初に行き当たる手法。 +
+運用するブランチが少し多い。 +
+現在のSFネットワークの開発環境で使用できる。 +
+機能追加の最中に緊急でバグ対応を迫られた場合などの手順が用意されている。 +
+
+|=========
+| ブランチ名称 | 機能
+| master | すべての基本 +
+           開発者は基本的にここにはコミットしない +
+           リリースやメジャーバージョンアップなどのイベントで更新される +
+| develop | 作業ブランチ +
+            すべての作業はここから分岐し、いったんここへ合流する。 +
+| feature | 機能追加 +
+            developより分岐する +
+| release | リリース準備 +
+| hotfix | 緊急のバグフィックス +
+|=========
+
+=== 参考URL
+
+* link:https://gist.github.com/Getaji/f5fa9b588bf1bfa6e21a[git-flowについて]（コマンドラインでの使い方概略）
+* link:http://qiita.com/KosukeSone/items/514dd24828b485c69a05[Git-flowって何？ Qiita]
+* link:http://qiita.com/masatomix/items/5e520591695f21769f11[SourceTree上でGit Flowを動かしてみる Qiita]
+* link:http://qiita.com/y_minowa/items/430439448943b21dbff6[git-flowを使った日々の開発フローのふりかえり Qiita]
+
+== GitHub Flow
+
+とくにプラグインやGUIはない。手動で実施する。 +
+フォーク先からプルリクを送り、それを受け入れることでレビューが完了とする。 +
+masterブランチは、つねにリリースできるようにする。 +
+(…ことを人間が気を付ける) +
+
+|=========
+| ブランチ名称 | 機能
+| master | すべての基本 +
+           つねにリリースできるようにする。 +
+| topic | トピックブランチ +
+          機能追加・不具合対応に使う。 +
+          topic/task_name1 +
+          topic/task_name2 +
+          などのように、複数のブランチを持つ。 +
+|=========
+
+=== 参考URL
+
+* link:https://gist.github.com/Gab-km/3705015[GitHub Flow 日本語訳]
+
+== GitLab Flow
+
+とくにプラグインやGUIはない。手動で実施する。 +
+関係者全員は同じリポジトリを見る。フォークはしない。 +
+リリース用のブランチを用意する。 +
+GitHubではなく、　link:https://about.gitlab.com/[Gitlab] が元となる。 +
+
+|=========
+| ブランチ名称 | 機能
+| master | すべての基本
+| topic | 機能追加・不具合対応に使う。 +
+| production | リリースブランチ +
+|=========
+
+
+=== 参考URL
+
+* link:http://shoma2da.hatenablog.com/entry/2015/11/04/233534[アプリ開発にはGitlab flowが合うと思います]
+* link:http://postd.cc/gitlab-flow/[GitLab flowから学ぶワークフローの実践]
+* link:http://qiita.com/pink/items/8ab3ecc270a9a7db46b4[Pull Request / Merge Request の違い Qiita]
+* link:http://blog.qnyp.com/2013/05/28/pull-request-for-github-beginners/[GitHub初心者はForkしない方のPull Requestから入門しよう] フォークをしないプルリク
