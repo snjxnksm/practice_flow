@@ -51,7 +51,7 @@ hotfix -> develop : 不具合対応完了マージ
 master <- hotfix : 不具合対応完了マージ
 activate master
 master -> master : タグ付
-master -> master : 本番へデプロイ
+master -> master : 開発・ステージング・本番へデプロイ
 master -> production : デプロイ完了したらマージ
 deactivate master
 hotfix -> hotfix : ブランチ削除
@@ -76,7 +76,7 @@ hotfix -> develop : 不具合対応完了マージ
 master <- hotfix : 不具合対応完了マージ
 activate master
 master -> master : タグ付
-master -> master : 本番へデプロイ
+master -> master : 開発・ステージング・本番へデプロイ
 master -> production : デプロイ完了したらマージ
 deactivate master
 hotfix -> hotfix : ブランチ削除
@@ -108,7 +108,7 @@ destroy relase
 deactivate relase
 
 master -> master : タグ付
-master -> master : 本番へデプロイ
+master -> master : 開発・ステージング・本番へデプロイ
 master -> production : デプロイ完了したらマージ
 deactivate master
 
