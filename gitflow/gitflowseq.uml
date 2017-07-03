@@ -4,8 +4,10 @@ title ブランチ戦略
 participant production as production <<本番リリース>>
 participant relase as relase <<リリースブランチ>>
 participant hotfix as hotfix <<バグの修正>>
-participant master as master <<製品ブランチ>>
-participant develop as develop <<開発ブランチ>>
+box "基本ブランチ" #LightBlue
+  participant master as master <<製品ブランチ>>
+  participant develop as develop <<開発ブランチ>>
+end box
 participant "feature" as feature1 <<機能追加>>
 participant "feature" as feature2 <<機能追加>>
 participant "feature" as feature3 <<機能追加>>
@@ -14,26 +16,19 @@ master -> master : タグ付
 create production
 master -> production : 2017/06/26
 
+create develop
+master -> develop : Git Flow init
+note right : Git Flow運用スタート
+
 develop -> feature3 : 機能追加開始
 activate feature3
 feature3 -> feature3 :　製造
 
 develop -> feature1 : 機能追加開始
 activate feature1
-
-master -> hotfix : 不具合対応開始
-activate hotfix
-hotfix -> hotfix :　コード修正
 feature1 -> feature1 :　製造
-hotfix -> hotfix :　テスト
 feature1 -> feature1 :　テスト
-hotfix -> hotfix :　レビュー
 feature1 -> feature1 :　レビュー
-master <- hotfix : 不具合対応完了マージ
-hotfix -> develop : 不具合対応完了マージ
-hotfix -> hotfix : ブランチ削除
-destroy hotfix
-deactivate hotfix
 
 develop -> feature2 : 機能追加開始
 activate  feature2
@@ -52,8 +47,13 @@ activate hotfix
 hotfix -> hotfix :　コード修正
 hotfix -> hotfix :　テスト
 hotfix -> hotfix :　レビュー
-master <- hotfix : 不具合対応完了マージ
 hotfix -> develop : 不具合対応完了マージ
+master <- hotfix : 不具合対応完了マージ
+activate master
+master -> master : タグ付
+master -> master : 本番へデプロイ
+master -> production : デプロイ完了したらマージ
+deactivate master
 hotfix -> hotfix : ブランチ削除
 destroy hotfix
 deactivate hotfix
@@ -66,6 +66,30 @@ feature2 -> feature2 : ブランチ削除
 destroy feature2
 deactivate feature2
 
+
+master -> hotfix : 不具合対応開始
+activate hotfix
+hotfix -> hotfix :　コード修正
+hotfix -> hotfix :　テスト
+hotfix -> hotfix :　レビュー
+hotfix -> develop : 不具合対応完了マージ
+master <- hotfix : 不具合対応完了マージ
+activate master
+master -> master : タグ付
+master -> master : 本番へデプロイ
+master -> production : デプロイ完了したらマージ
+deactivate master
+hotfix -> hotfix : ブランチ削除
+destroy hotfix
+deactivate hotfix
+
+
+feature3 -> feature3 :　レビュー
+feature3 -> develop : 機能追加完了マージ
+feature3 -> feature3 : ブランチ削除
+destroy feature3
+deactivate feature3
+
 develop -> relase : リリース準備開始
 activate relase
 relase -> relase : ビルド
@@ -74,23 +98,18 @@ relase -> relase : テスト
 relase -> relase : デバッグ
 relase -> relase : 開発へデプロイ
 relase -> relase : テスト
-relase -> master : マージ
+relase -> relase : ステージングへデプロイ
+relase -> relase : テスト
+relase -> develop : developへマージ
+relase -> master : masterへマージ
 activate master
-
-master -> master : 本番へデプロイ
-master -> production : デプロイ完了したらマージ
-deactivate master
-
 relase -> relase : ブランチ削除
 destroy relase
 deactivate relase
 
-
-
-feature3 -> feature3 :　レビュー
-feature3 -> develop : 機能追加完了マージ
-feature3 -> feature3 : ブランチ削除
-destroy feature3
-deactivate feature3
+master -> master : タグ付
+master -> master : 本番へデプロイ
+master -> production : デプロイ完了したらマージ
+deactivate master
 
 @enduml
