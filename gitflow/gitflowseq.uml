@@ -1,12 +1,18 @@
 @startuml
 title ブランチ戦略
 
-participant  hotfix as hotfix <<バグの修正>>
-participant  master as master <<製品ブランチ>>
-participant  develop as develop <<開発ブランチ>>
-participant  "feature" as feature1 <<機能追加>>
-participant  "feature" as feature2 <<機能追加>>
-participant  "feature" as feature3 <<機能追加>>
+participant production as production <<本番リリース>>
+participant relase as relase <<リリースブランチ>>
+participant hotfix as hotfix <<バグの修正>>
+participant master as master <<製品ブランチ>>
+participant develop as develop <<開発ブランチ>>
+participant "feature" as feature1 <<機能追加>>
+participant "feature" as feature2 <<機能追加>>
+participant "feature" as feature3 <<機能追加>>
+
+master -> master : タグ付
+create production
+master -> production : 2017/06/26
 
 develop -> feature3 : 機能追加開始
 activate feature3
@@ -59,6 +65,27 @@ feature2 -> develop : 機能追加完了マージ
 feature2 -> feature2 : ブランチ削除
 destroy feature2
 deactivate feature2
+
+develop -> relase : リリース準備開始
+activate relase
+relase -> relase : ビルド
+relase -> relase : 開発へデプロイ
+relase -> relase : テスト
+relase -> relase : デバッグ
+relase -> relase : 開発へデプロイ
+relase -> relase : テスト
+relase -> master : マージ
+activate master
+
+master -> master : 本番へデプロイ
+master -> production : デプロイ完了したらマージ
+deactivate master
+
+relase -> relase : ブランチ削除
+destroy relase
+deactivate relase
+
+
 
 feature3 -> feature3 :　レビュー
 feature3 -> develop : 機能追加完了マージ
