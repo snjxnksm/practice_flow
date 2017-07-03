@@ -1,5 +1,69 @@
 @startuml
+title ブランチ戦略
+
+participant  hotfix as hotfix <<バグの修正>>
+participant  master as master <<製品ブランチ>>
+participant  develop as develop <<開発ブランチ>>
+participant  "feature" as feature1 <<機能追加>>
+participant  "feature" as feature2 <<機能追加>>
+participant  "feature" as feature3 <<機能追加>>
+
+develop -> feature3 : 機能追加開始
+activate feature3
+feature3 -> feature3 :　製造
+
+develop -> feature1 : 機能追加開始
+activate feature1
+
+master -> hotfix : 不具合対応開始
+activate hotfix
+hotfix -> hotfix :　コード修正
+feature1 -> feature1 :　製造
+hotfix -> hotfix :　テスト
+feature1 -> feature1 :　テスト
+hotfix -> hotfix :　レビュー
+feature1 -> feature1 :　レビュー
+master <- hotfix : 不具合対応完了マージ
+hotfix -> develop : 不具合対応完了マージ
+hotfix -> hotfix : ブランチ削除
+destroy hotfix
+deactivate hotfix
+
+develop -> feature2 : 機能追加開始
+activate  feature2
+
+feature1 -> develop : 機能追加完了マージ
+feature1 -> feature1 : ブランチ削除
+destroy feature1
+deactivate feature1
+
+feature2 -> feature2 :　製造
+feature3 -> feature3 :　テスト
+feature2 -> feature2 :　テスト
+
+master -> hotfix : 不具合対応開始
+activate hotfix
+hotfix -> hotfix :　コード修正
+hotfix -> hotfix :　テスト
+hotfix -> hotfix :　レビュー
+master <- hotfix : 不具合対応完了マージ
+hotfix -> develop : 不具合対応完了マージ
+hotfix -> hotfix : ブランチ削除
+destroy hotfix
+deactivate hotfix
 
 
+feature2 -> feature2 :　レビュー
+
+feature2 -> develop : 機能追加完了マージ
+feature2 -> feature2 : ブランチ削除
+destroy feature2
+deactivate feature2
+
+feature3 -> feature3 :　レビュー
+feature3 -> develop : 機能追加完了マージ
+feature3 -> feature3 : ブランチ削除
+destroy feature3
+deactivate feature3
 
 @enduml
