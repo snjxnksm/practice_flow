@@ -2,7 +2,6 @@
 title ブランチ戦略
 
 participant production as production <<本番リリース>>
-participant relase as relase <<リリースブランチ>>
 participant hotfix as hotfix <<バグの修正>>
 box "基本ブランチ" #LightBlue
   participant master as master <<製品ブランチ>>
@@ -11,6 +10,7 @@ end box
 participant "feature" as feature1 <<機能追加>>
 participant "feature" as feature2 <<機能追加>>
 participant "feature" as feature3 <<機能追加>>
+participant relase as relase <<リリースブランチ>>
 
 master -> master : タグ付
 create production
