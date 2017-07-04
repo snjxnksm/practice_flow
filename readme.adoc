@@ -35,7 +35,7 @@ image:gitflow/sourcetree_option.png[オプション画面]
 * Git Flow init　を実行する。 +
 プルしてきた直後にGit Flow の初期化を行う。 +
 デフォルトの状態で「OK」ボタンをクリックする。 +
-image:gitfow/gitflow_init.png[GitFlow初期化]
+image:gitflow/gitflow_init.png[GitFlow初期化]
 
 ---
 === 機能追加
@@ -44,8 +44,24 @@ image:gitfow/gitflow_init.png[GitFlow初期化]
 機能追加の作業が完了したら、developへマージし、追加した機能ごとのfeatureブランチは削除する。 +
 
 ==== SouceTreeでの操作
-===== 作業開始
-===== 作業終了
+
+image:gitflow/feature.png[機能追加]
+
+===== 機能追加開始
+
+. 新規フィーチャーを開始
+image:gitflow\new_feature.png[新規フィーチャー]
+. 名前をつける
+image:gitflow\naming_feature.png[フィーチャー命名]
+. 完了
+image:gitflow\complate_feature.png[フィーチャー作成完]
+
+作成した新規フィーチャーがチェックアウトされている状態なので、機能追加作業を実施する。 +
+
+===== 機能追加完了マージ
+
+
+
 ---
 === 不具合対応
 
@@ -53,8 +69,8 @@ image:gitfow/gitflow_init.png[GitFlow初期化]
 機能追加の作業が完了したら、masterとdevelopへマージし、hotfixブランチは削除する。 +
 
 ==== SouceTreeでの操作
-===== 作業開始
-===== 作業終了
+===== 不具合対応開始
+===== 不具合対応完了マージ
 ---
 === リリース準備
 
@@ -62,5 +78,5 @@ image:gitfow/gitflow_init.png[GitFlow初期化]
 リリース準備が完了したら、masterとdevelopへマージし、relaseブランチ削除する。 +
 
 ==== SouceTreeでの操作
-===== 作業開始
-===== 作業終了
+===== リリース準備開始
+===== リリース準備完了マージ

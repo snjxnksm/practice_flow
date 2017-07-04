@@ -1,0 +1,20 @@
+@startuml
+title 機能追加
+
+box "基本ブランチ" #LightBlue
+  participant develop as develop <<開発ブランチ>>
+end box
+participant "feature" as feature1 <<機能追加>>
+
+develop -> feature1 : 機能追加開始
+activate feature1
+feature1 -> feature1 :　製造
+feature1 -> feature1 :　テスト
+feature1 -> feature1 :　レビュー
+feature1 -> develop : 機能追加完了マージ
+feature1 -> feature1 : ブランチ削除
+destroy feature1
+deactivate feature1
+
+
+@enduml

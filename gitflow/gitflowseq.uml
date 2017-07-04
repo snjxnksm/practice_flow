@@ -50,13 +50,13 @@ hotfix -> hotfix :　レビュー
 hotfix -> develop : 不具合対応完了マージ
 master <- hotfix : 不具合対応完了マージ
 activate master
+hotfix -> hotfix : ブランチ削除
+destroy hotfix
+deactivate hotfix
 master -> master : タグ付
 master -> master : 開発・ステージング・本番へデプロイ
 master -> production : デプロイ完了したらマージ
 deactivate master
-hotfix -> hotfix : ブランチ削除
-destroy hotfix
-deactivate hotfix
 
 
 feature2 -> feature2 :　レビュー
@@ -75,13 +75,14 @@ hotfix -> hotfix :　レビュー
 hotfix -> develop : 不具合対応完了マージ
 master <- hotfix : 不具合対応完了マージ
 activate master
+hotfix -> hotfix : ブランチ削除
+destroy hotfix
+deactivate hotfix
+
 master -> master : タグ付
 master -> master : 開発・ステージング・本番へデプロイ
 master -> production : デプロイ完了したらマージ
 deactivate master
-hotfix -> hotfix : ブランチ削除
-destroy hotfix
-deactivate hotfix
 
 
 feature3 -> feature3 :　レビュー
@@ -100,8 +101,8 @@ relase -> relase : 開発へデプロイ
 relase -> relase : テスト
 relase -> relase : ステージングへデプロイ
 relase -> relase : テスト
-relase -> develop : developへマージ
-relase -> master : masterへマージ
+relase -> develop : リリース準備完了マージ
+relase -> master : リリース準備完了マージ
 activate master
 relase -> relase : ブランチ削除
 destroy relase
