@@ -1,0 +1,34 @@
+@startuml
+title リリース
+
+participant production as production <<本番リリース>>
+box "基本ブランチ" #LightBlue
+  participant master as master <<製品ブランチ>>
+  participant develop as develop <<開発ブランチ>>
+end box
+participant relase as relase <<リリースブランチ>>
+
+develop -> relase : リリース準備開始
+activate relase
+relase -> relase : ビルド
+relase -> relase : 開発へデプロイ
+relase -> relase : テスト
+relase -> relase : デバッグ
+relase -> relase : 開発へデプロイ
+relase -> relase : テスト
+relase -> relase : ステージングへデプロイ
+relase -> relase : テスト
+relase -> develop : リリース準備完了マージ
+relase -> master : リリース準備完了マージ
+activate master
+relase -> relase : ブランチ削除
+destroy relase
+deactivate relase
+
+master -> master : タグ付
+master -> master : 開発・ステージング・本番へデプロイ
+master -> production : デプロイ完了したらマージ
+deactivate master
+
+
+@enduml

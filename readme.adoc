@@ -56,11 +56,11 @@ image:gitflow/feature.png[機能追加]
 
 ===== 機能追加開始
 
-. 新規フィーチャーを開始
+. 新規フィーチャーを開始 +
 image:gitflow\new_feature.png[新規フィーチャー]
-. 名前をつける
+. 名前をつける +
 image:gitflow\naming_feature.png[フィーチャー命名]
-. 完了
+. 完了 +
 image:gitflow\complate_feature.png[フィーチャー作成完]
 
 作成した新規フィーチャーがチェックアウトされている状態なので、機能追加作業を実施する。 +
@@ -69,9 +69,9 @@ image:gitflow\complate_feature.png[フィーチャー作成完]
 
 機能追加作業が終了したら、そのフィーチャーを「完了」する。 +
 
-. フィーチャー完了ボタンをクリック
+. フィーチャー完了ボタンをクリック +
 image:gitflow\work_comp_feature.png[フィーチャー完了]
-. フィーチャー名を確認してOK
+. フィーチャー名を確認してOK +
 image:gitflow\ok_feature.png[フィーチャーOK]
 
 無事に完了すれば、developへのマージとフィーチャーブランチの削除が実行されているはず。 +
@@ -79,12 +79,38 @@ image:gitflow\ok_feature.png[フィーチャーOK]
 ---
 === リリース準備
 
+予定していた機能追加がすべて完了したら、リリース準備に入る。 +
 リリース準備は、developからrelaseブランチを分岐する。 +
 リリース準備が完了したら、masterとdevelopへマージし、relaseブランチ削除する。 +
 
 ==== SouceTreeでの操作
+
+image:gitflow\relase.png[リリース]
+
 ===== リリース準備開始
+
+. 新規リリースを開始 +
+image:gitflow\new_feature.png[新規リリース]
+. 名前をつける +
+image:gitflow\naming_relase.png[リリース命名]
+. 完了 +
+image:gitflow\complate_relase.png[リリース作成完]
+
+作成した新規リリースがチェックアウトされている状態なので、リリース作業を実施する。 +
+リリース作業で不具合が発生したら、子のブランチで作業をする。 +
+
 ===== リリース準備完了マージ
+
+リリース作業が終了したら、そのリリースを「完了」する。 +
+
+. フィーチャー完了ボタンをクリック +
+image:gitflow\work_comp_relase.png[リリース完了]
+. フィーチャー名を確認してOK +
+image:gitflow\ok_lelase.png[リリースOK]
+
+無事に完了すれば、developとmasterへのマージとリリースブランチの削除が実行されているはず。 +
+masterが更新されたので、本番環境などへのデプロイを行う。 +
+本番デプロイが無事に完了したら、masterブランチをproductionブランチへマージする（手動作業）。 +
 
 ---
 === 不具合対応
