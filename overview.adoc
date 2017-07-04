@@ -3,7 +3,7 @@
 :toc-title: 目次
 :source-highlighter: coderay
 
-Gitのブランチ戦略についてメモ。
+Gitのブランチ戦略についてメモ。 +
 
 == はじめに
 
@@ -52,12 +52,12 @@ featureブランチ同士でマージさせないなどのルールをシステ�
 
 === 参考URL
 
-* link:https://gist.github.com/Getaji/f5fa9b588bf1bfa6e21a[git-flowについて]（コマンドラインでの使い方概略）
-* link:http://qiita.com/KosukeSone/items/514dd24828b485c69a05[Git-flowって何？ Qiita]
-* link:http://qiita.com/masatomix/items/5e520591695f21769f11[SourceTree上でGit Flowを動かしてみる Qiita]
-* link:http://qiita.com/y_minowa/items/430439448943b21dbff6[git-flowを使った日々の開発フローのふりかえり Qiita]
-* link:http://qiita.com/Tamiiy/items/86f122d40ef6b158c2ab[git flow × Pull Request を使ってモダンな開発してみた Qiita]
-* link:http://qiita.com/ycoda/items/7faf1863b98eb584daf6[git-flowを使ってGitHubにプルリクエストを送ってみる手順 Qiita]
+* link:https://gist.github.com/Getaji/f5fa9b588bf1bfa6e21a[git-flowについて]（コマンドラインでの使い方概略） +
+* link:http://qiita.com/KosukeSone/items/514dd24828b485c69a05[Git-flowって何？ Qiita] +
+* link:http://qiita.com/masatomix/items/5e520591695f21769f11[SourceTree上でGit Flowを動かしてみる Qiita] +
+* link:http://qiita.com/y_minowa/items/430439448943b21dbff6[git-flowを使った日々の開発フローのふりかえり Qiita] +
+* link:http://qiita.com/Tamiiy/items/86f122d40ef6b158c2ab[git flow × Pull Request を使ってモダンな開発してみた Qiita] +
+* link:http://qiita.com/ycoda/items/7faf1863b98eb584daf6[git-flowを使ってGitHubにプルリクエストを送ってみる手順 Qiita] +
 
 == GitHub Flow
 
@@ -79,7 +79,7 @@ masterブランチは、つねにリリースできるようにする。 +
 
 === 参考URL
 
-* link:https://gist.github.com/Gab-km/3705015[GitHub Flow 日本語訳]
+* link:https://gist.github.com/Gab-km/3705015[GitHub Flow 日本語訳] +
 
 == GitLab Flow
 
@@ -100,7 +100,7 @@ Gitlabでは、ブランチでの作業が終わったらマージリクエス�
 
 === 参考URL
 
-* link:http://shoma2da.hatenablog.com/entry/2015/11/04/233534[アプリ開発にはGitlab flowが合うと思います]
-* link:http://postd.cc/gitlab-flow/[GitLab flowから学ぶワークフローの実践]
-* link:http://qiita.com/pink/items/8ab3ecc270a9a7db46b4[Pull Request / Merge Request の違い Qiita]
-* link:http://blog.qnyp.com/2013/05/28/pull-request-for-github-beginners/[GitHub初心者はForkしない方のPull Requestから入門しよう] フォークをしないプルリク
+* link:http://shoma2da.hatenablog.com/entry/2015/11/04/233534[アプリ開発にはGitlab flowが合うと思います] +
+* link:http://postd.cc/gitlab-flow/[GitLab flowから学ぶワークフローの実践] +
+* link:http://qiita.com/pink/items/8ab3ecc270a9a7db46b4[Pull Request / Merge Request の違い Qiita] +
+* link:http://blog.qnyp.com/2013/05/28/pull-request-for-github-beginners/[GitHub初心者はForkしない方のPull Requestから入門しよう] フォークをしないプルリク +
