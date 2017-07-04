@@ -67,7 +67,14 @@ image:gitflow\complate_feature.png[フィーチャー作成完]
 
 ===== 機能追加完了マージ
 
+機能追加作業が終了したら、そのフィーチャーを「完了」する。 +
 
+. フィーチャー完了ボタンをクリック
+image:gitflow\work_comp_feature.png[フィーチャー完了]
+. フィーチャー名を確認してOK
+image:gitflow\ok_feature.png[フィーチャーOK]
+
+無事に完了すれば、developへのマージとフィーチャーブランチの削除が実行されているはず。 +
 
 ---
 === 不具合対応
