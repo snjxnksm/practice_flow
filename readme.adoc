@@ -9,6 +9,7 @@ Gitの運用に関して。
 
 GitFlowモデルを採用した場合の運用手順を記述する。 +
 Gitのブランチ戦略に関して各モデルの概略はlink:overview.adoc[Gitワークフロー概略]を参照のこと +
+使うツールは　link:https://ja.atlassian.com/software/sourcetree[SourceTree] +
 
 == GitFlow概略
 
