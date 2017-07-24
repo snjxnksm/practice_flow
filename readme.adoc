@@ -28,7 +28,6 @@ Gitのブランチ戦略に関して各モデルの概略はlink:overview.adoc[G
 「新規リリースを開始」ボタンでdevelopからブランチし、「リリースを完了」ボタンでmasterとdevelopへマージする。 +
 * hotfixは、すでにリリースしたものに対して不具合対応する際に、masterから分岐する。 +
 不具合対応が完了したら、masterとdevelopへ同時にマージし、hotfixブランチは削除される。 +
-（タグ付けと各環境へのデプロイ、productionへのマージは人力作業） +
 「新規ホットフィックスを開始」ボタンでmasterからブランチし、「ホットフィックスを完了」ボタンでmasterとdevelopへマージする。 +
 
 image:gitflow/gitflowseq.png[ブランチ戦略１]
@@ -115,7 +114,6 @@ image:gitflow\ok_lelase.png[リリースOK]
 
 無事に完了すれば、developとmasterへのマージとリリースブランチの削除が実行されているはず。 +
 masterが更新されたので、本番環境などへのデプロイを行う。 +
-本番デプロイが無事に完了したら、masterブランチをproductionブランチへマージする（手動作業）。 +
 
 ---
 === 不具合対応
@@ -150,7 +148,6 @@ image:gitflow\ok_hotfix.png[ホットフィックスOK]
 
 無事に完了すれば、developとmasterへのマージとリリースブランチの削除が実行されているはず。 +
 masterが更新されたので、本番環境などへのデプロイを行う。 +
-本番デプロイが無事に完了したら、masterブランチをproductionブランチへマージする（手動作業）。 +
 
 
 == 自分の機能追加をブランチした後にdevelopブランチの更新が進んじゃったらどうするか？

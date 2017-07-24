@@ -1,7 +1,6 @@
 @startuml
 title リリース
 
-participant production as production <<本番リリース>>
 box "基本ブランチ" #LightBlue
   participant master as master <<製品ブランチ>>
   participant develop as develop <<開発ブランチ>>
@@ -27,7 +26,6 @@ deactivate relase
 
 master -> master : タグ付
 master -> master : 開発・ステージング・本番へデプロイ
-master -> production : デプロイ完了したらマージ
 deactivate master
 
 

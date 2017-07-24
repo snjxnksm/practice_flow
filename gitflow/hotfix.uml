@@ -1,7 +1,6 @@
 @startuml
 title 不具合対応
 
-participant production as production <<本番リリース>>
 participant hotfix as hotfix <<バグの修正>>
 box "基本ブランチ" #LightBlue
   participant master as master <<製品ブランチ>>
@@ -21,7 +20,6 @@ destroy hotfix
 deactivate hotfix
 master -> master : タグ付
 master -> master : 開発・ステージング・本番へデプロイ
-master -> production : デプロイ完了したらマージ
 deactivate master
 
 @enduml
