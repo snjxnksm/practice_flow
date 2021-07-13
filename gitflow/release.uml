@@ -1,0 +1,32 @@
+@startuml
+title リリース
+
+box "基本ブランチ" #LightBlue
+  participant master as master <<製品ブランチ>>
+  participant develop as develop <<開発ブランチ>>
+end box
+participant release as release <<リリースブランチ>>
+
+develop -> release : リリース準備開始
+activate release
+release -> release : ビルド
+release -> release : 開発へデプロイ
+release -> release : テスト
+release -> release : デバッグ
+release -> release : 開発へデプロイ
+release -> release : テスト
+release -> release : ステージングへデプロイ
+release -> release : テスト
+release -> develop : リリース準備完了マージ
+release -> master : リリース準備完了マージ
+activate master
+release -> release : ブランチ削除
+destroy release
+deactivate release
+
+master -> master : タグ付
+master -> master : 開発・ステージング・本番へデプロイ
+deactivate master
+
+
+@enduml
